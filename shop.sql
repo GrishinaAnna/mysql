@@ -126,5 +126,4 @@ INSERT INTO storehouses_products (product_id, value) VALUES
   (6, 97),
   (7, 0);
  
- SELECT * FROM storehouses_products ORDER BY CASE WHEN value = 0 THEN 999999 ELSE value END; /* Задание 3. Сортировка  в порядке увеличения значения value,
- 																							 нулевые запасы должны выводиться в конце, после всех записей.*/
+ 
