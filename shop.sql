@@ -1,3 +1,13 @@
+/* Задание.
+1. Пусть в таблице users поля created_at и updated_at оказались незаполненными. Заполните их текущими датой и временем.
+2. Таблица users была неудачно спроектирована. Записи created_at и updated_at были заданы типом VARCHAR и в них долгое
+время помещались значения в формате "20.10.2017 8:10". Необходимо преобразовать поля к типу DATETIME, сохранив введеные ранее значения.
+3. В таблице складских запасов storehouses_products в поле value могут встречаться самые разные цифры: 0, если товар
+закончился и выше нуля, если на складе имеются запасы. Необходимо отсортировать записи таким образом,
+чтобы они выводились в порядке увеличения значения value. Однако, нулевые запасы должны выводиться в конце, после всех записей.
+ */
+
+
 DROP TABLE IF EXISTS catalogs;
 CREATE TABLE catalogs (
   id SERIAL PRIMARY KEY,
@@ -61,13 +71,6 @@ CREATE TABLE orders (
   KEY index_of_user_id(user_id)
 ) COMMENT = 'Заказы';
 
-INSERT INTO orders (user_id) VALUES
-('6'),
-('2'),
-('4'),
-('3');
-	
-
 DROP TABLE IF EXISTS orders_products;
 CREATE TABLE orders_products (
   id SERIAL PRIMARY KEY,
@@ -77,13 +80,6 @@ CREATE TABLE orders_products (
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) COMMENT = 'Состав заказа';
-
-INSERT INTO orders_products (order_id, product_id, total) VALUES
-	(1, 10, 5),
-	(2, 5, 1),
-	(3, 7, 1),
-	(4, 4, 2),
-	(5, 1, 9);
 
 DROP TABLE IF EXISTS discounts;
 CREATE TABLE discounts (
