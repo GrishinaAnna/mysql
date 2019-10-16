@@ -124,6 +124,7 @@ INSERT INTO storehouses_products (product_id, value) VALUES
   (4, 58),
   (5, 7),
   (6, 97),
-  (7, 0);
+  (7, 0),
+  (8, 1);
  
  
