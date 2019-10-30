@@ -23,4 +23,8 @@ SELECT * FROM passengers AS p
 WHERE p.id = (SELECT b.passenger_id FROM booking AS b
 WHERE passenger_id = 1)
 
+
+
 /* В настоящее время проект находится в стадии доработки по пунктам 5,6,7*/
+
+
